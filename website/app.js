@@ -9,7 +9,6 @@ document.getElementById('generate').addEventListener("click", getCurrentWeather)
 
 /* Function called by event listener */
 function getCurrentWeather() {
-    console.log('clicked');
     // const enteredZipCode = document.getElementById('zip').value;
     const zipCode = document.getElementById('zip').value;
     const apiCall = baseUrl + '?zip=' + zipCode + '&appid=' + apiKey;
@@ -53,7 +52,6 @@ const postData = async(URL = '/send', data = {}) => {
     });
 
     try{
-        console.log('between')
         return await response.json();
 
     }catch (e) {
