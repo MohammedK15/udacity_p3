@@ -32,23 +32,31 @@ function checkBack(){
 
 // Callback function to complete GET '/all'
 app.get('/all', (req, res) => {
+    console.log('GET request call');
+    console.log(projectData[projectData.length - 1])
     res.json(
         {
             status: 'success',
-            data: projectData,
+            data: projectData[projectData.length - 1],
             message: 'retrieved data',
         }
     )
 });
 // Post Route
 app.post('/send', (req, res) => {
-    const tmpData = {
-        temp: req.temp,
-        date: req.date,
-        userFeel: req.userFeel,
-    };
+    console.log('POST request call');
+    // const tmpData = {
+    //     temp: req.temp,
+    //     date: req.date,
+    //     userFeel: req.userFeel,
+    // };
+    // console.log(req.body);
+    // console.log('---------------');
 
-    projectData.push(tmpData);
+    console.log(projectData);
+
+    projectData.push(req.body);
+    console.log(projectData);
 
     res.send(projectData);
 })

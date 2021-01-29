@@ -1,6 +1,7 @@
 // Personal API Key for OpenWeatherMap API
 const baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
 const apiKey = '25b7a4527f77b209b126a463a9baa9c0';
+const unit = '&units=metric';
 
 
 // Event listener to add function to existing HTML DOM element
@@ -11,7 +12,7 @@ document.getElementById('generate').addEventListener("click", getCurrentWeather)
 function getCurrentWeather() {
     // const enteredZipCode = document.getElementById('zip').value;
     const zipCode = document.getElementById('zip').value;
-    const apiCall = baseUrl + '?zip=' + zipCode + '&appid=' + apiKey;
+    const apiCall = baseUrl + '?zip=' + zipCode + '&appid=' + apiKey + unit;
     // const apiCall = 'http://api.openweathermap.org/data/2.5/weather?zip=94040&appid=25b7a4527f77b209b126a463a9baa9c0';
     getWeatherAPI(apiCall)
         .then(function (d){
@@ -64,9 +65,9 @@ const updateUI = async () => {
     const request = await fetch('/all');
     try{
         const allData = await request.json();
-        document.getElementById('date').innerHTML = allData.data.date;
-        document.getElementById('temp').innerHTML = allData.data.temp;
-        document.getElementById('content').innerHTML = allData.data.userFeel;
+        document.getElementById('date').innerHTML = 'Today date: ' + allData.data.date;
+        document.getElementById('temp').innerHTML = 'Temperature: ' + allData.data.temp + 'c';
+        document.getElementById('content').innerHTML = 'Feeling like: ' + allData.data.userFeel;
     }catch(error){
         console.log("error", error);
     }
