@@ -45,18 +45,8 @@ app.get('/all', (req, res) => {
 // Post Route
 app.post('/send', (req, res) => {
     console.log('POST request call');
-    // const tmpData = {
-    //     temp: req.temp,
-    //     date: req.date,
-    //     userFeel: req.userFeel,
-    // };
-    // console.log(req.body);
-    // console.log('---------------');
-
-    console.log(projectData);
 
     projectData.push(req.body);
-    console.log(projectData);
 
     res.send(projectData);
 })
