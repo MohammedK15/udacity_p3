@@ -22,7 +22,7 @@ app.use(express.static('website'));
 
 // Spin up the server
 // Callback to debug
-const port = 333;
+const port = 3333;
 const server = app.listen(port, checkBack);
 
 function checkBack(){
